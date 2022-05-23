@@ -1,7 +1,7 @@
 Package: ggradial
 Type: Package
 Title: A ggplot2 extension for radar and radial bar charts to visualize high-dimensional clusters and their evolution
-Version: 0.1.0
+Version: 0.1.1
 Author: Thorben Hebbelmann, Michael Thane, Marcel Schulte
 Maintainer: The package maintainer <mthane93@gmail.com>
 Description: 

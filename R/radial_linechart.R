@@ -102,8 +102,8 @@ radial_line_chart <- function(df,
     ) %>%
     inner_join(janitor::tabyl(df, .cluster) %>% select(.cluster, n), by = ".cluster") %>%
     group_by(.cluster, f) %>%
-    summarize(avg = mean(v),
-              sd = sd(v),
+    summarize(avg = mean(v, na.rm = TRUE),
+              sd = sd(v, na.rm = TRUE),
               n = n[1]) %>%
     ungroup() %>%
     mutate(error = qnorm(0.975) * sd / sqrt(n)) %>%

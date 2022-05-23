@@ -14,6 +14,10 @@ data_cluster <- df %>% mutate(.cluster = fct_drop(as.factor(.cluster))) %>% sele
 group_names = grs$.gr_name[grs$.gr_id != 1]
 
 data_static = data_cluster %>%select(!c(".id",".phase"))
+
+# add artificial missing value
+data_static[1, "f_2"] <- NA_real_
+
 radial_barchart_static(data_static, group_names,interactive = F)
 
 data_linechart = df%>%select(!c(".phase"))

@@ -76,7 +76,7 @@ radial_barchart_static <- function(df,
     pivot_longer(names_to = "f", values_to = "v", cols = everything()) %>%
     mutate(n = nrow(df)) %>%
     group_by(f) %>%
-    summarize(avg = mean(v), sd = sd(v), n = n[1]) %>%
+    summarize(avg = mean(v, na.rm = TRUE), sd = sd(v, na.rm = TRUE), n = n[1]) %>%
     ungroup() %>%
     mutate(error = qnorm(0.975)*sd/sqrt(n)) %>%
     # winsorize cluster averages
